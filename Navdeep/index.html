@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- TITLE & DESCRIPTION are also updated from CONFIG in script.js. Edit both if you want SEO-perfect static values. -->
+  <title>Portfolio — Graphic Designer</title>
+  <meta name="description" content="Portfolio of a graphic designer and video editor: thumbnails, branding, social creatives, video edits and motion graphics." />
+  <meta name="theme-color" content="#07070b" />
+
+  <!-- Inline SVG favicon (replace with your own favicon if you like) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2307070b'/%3E%3Cpath d='M18 46V18h14a10 10 0 010 20H26' fill='none' stroke='%23c6ff3d' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E" />
+
+  <!-- Google Fonts: Syne (display) + Space Grotesk (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <noscript><style>.reveal{opacity:1!important;transform:none!important}.loader{display:none!important}body.is-loading{overflow:auto!important}.hero .word>span{transform:none!important}</style></noscript>
+</head>
+
+<body class="is-loading">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===== Page intro / loader ===== -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <div class="loader__num"><span id="loaderNum">0</span><small>%</small></div>
+      <div class="loader__bar"><span id="loaderBar"></span></div>
+      <p class="loader__text">Loading creative space</p>
+    </div>
+  </div>
+
+  <!-- Scroll progress + custom cursor (cursor only shows on desktop with a mouse) -->
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"><span id="cursorLabel"></span></div>
+
+  <!-- ===== Navigation ===== -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#home" class="nav__logo" id="navLogo" aria-label="Back to top">
+        <span class="nav__logo-mark">●</span><span id="navLogoText">Portfolio</span>
+      </a>
+
+      <nav class="nav__menu" id="navMenu" aria-label="Primary">
+        <ul class="nav__list">
+          <li><a href="#home" class="nav__link" style="--i:0">Home</a></li>
+          <li><a href="#about" class="nav__link" style="--i:1">About</a></li>
+          <li><a href="#work" class="nav__link" style="--i:2">Design</a></li>
+          <li><a href="#services" class="nav__link" style="--i:4">Services</a></li>
+          <li><a href="#contact" class="nav__link" style="--i:5">Contact</a></li>
+        </ul>
+      </nav>
+
+
+
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home" aria-labelledby="heroTitle">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="orb orb--1"></div>
+        <div class="orb orb--2"></div>
+        <div class="orb orb--3"></div>
+        <div class="hero__grid-lines"></div>
+        <span class="shape shape--ring" data-depth="30"></span>
+        <span class="shape shape--tri" data-depth="-24"></span>
+        <span class="shape shape--plus" data-depth="40">+</span>
+        <span class="shape shape--dot" data-depth="-36"></span>
+        <span class="shape shape--square" data-depth="22"></span>
+      </div>
+
+      <div class="container hero__grid">
+        <div class="hero__text">
+          <p class="badge"><span class="pulse"></span><span id="heroAvail">Available for projects</span></p>
+          <p class="hero__hi">Hi, I'm <strong id="heroName">Your Name</strong></p>
+          <h1 class="hero__title" id="heroTitle"></h1>
+          <p class="hero__role" id="heroRole"></p>
+          <p class="hero__intro" id="heroIntro"></p>
+          <div class="hero__cta">
+            <a href="#work" class="btn btn--primary" data-magnetic><span>Explore My Work</span><i class="btn__arrow" aria-hidden="true">→</i></a>
+            <a href="#contact" class="btn btn--ghost" data-magnetic><span>Let's Work Together</span></a>
+          </div>
+        </div>
+
+        <div class="hero__visual">
+          <div class="portrait">
+            <div class="portrait__glow" aria-hidden="true"></div>
+            <div class="portrait__frame" id="heroPhoto"></div>
+            <span class="chip chip--1" aria-hidden="true">Photoshop</span>
+            <span class="chip chip--2" aria-hidden="true">Premiere Pro</span>
+            <span class="chip chip--3" aria-hidden="true">After Effects</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track" id="marqueeTrack"></div>
+      </div>
+    </section>
+
+
+<!-- ===== ABOUT ===== -->
+<section class="section about" id="about" aria-labelledby="aboutTitle">
+  <div class="container about__grid">
+
+    <div class="about__media reveal">
+      <div class="about__photo" id="aboutPhoto"></div>
+
+      <div class="about__sticker" aria-hidden="true">
+        <svg viewBox="0 0 120 120">
+          <defs>
+            <path id="circ" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/>
+          </defs>
+          <text>
+            <textPath href="#circ" id="stickerText">
+              CREATE • DESIGN • EDIT •
+            </textPath>
+          </text>
+        </svg>
+        <span>✦</span>
+      </div>
+    </div>
+
+    <div class="about__content">
+      <p class="eyebrow reveal">About me</p>
+
+      <h2 class="section__title reveal" id="aboutTitle">
+        Design with <em>purpose</em>, edit with <em>rhythm</em>.
+      </h2>
+
+      <div class="about__bio reveal" id="aboutBio"></div>
+    </div>
+
+  </div>
+</section>
+
+
+    <!-- ===== GRAPHIC DESIGN PORTFOLIO ===== -->
+    <section class="section work" id="work" aria-labelledby="workTitle">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow reveal">Selected work — 01</p>
+          <h2 class="section__title reveal" id="workTitle">Graphic <em>design</em></h2>
+          <p class="section__lead reveal">Thumbnails, posters, brands and campaigns. Click any piece to view it larger.</p>
+        </div>
+
+        <div class="filters reveal" id="filters" role="group" aria-label="Filter graphic design projects"></div>
+        <div class="gallery" id="gallery"></div>
+        <p class="gallery__empty" id="galleryEmpty" hidden>No projects in this category yet.</p>
+      </div>
+    </section>
+
+
+
+    <!-- ===== SERVICES ===== -->
+    <section class="section services" id="services" aria-labelledby="servicesTitle">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow reveal">What I do — 03</p>
+          <h2 class="section__title reveal" id="servicesTitle">Services <em>built</em> for creators &amp; brands</h2>
+        </div>
+        <div class="services__grid" id="servicesGrid"></div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="section contact" id="contact" aria-labelledby="contactTitle">
+      <div class="container">
+        <div class="contact__top">
+          <p class="eyebrow reveal">Contact — 04</p>
+          <h2 class="section__title section__title--xl reveal" id="contactTitle">Let's make something <em>unforgettable</em>.</h2>
+        </div>
+
+        <div class="contact__grid">
+          <div class="contact__info reveal">
+            <ul class="contact__list" id="contactList"></ul>
+            <a class="btn btn--whatsapp" id="whatsappBtn" href="#" target="_blank" rel="noopener noreferrer" data-magnetic>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2a9.9 9.9 0 00-8.46 15.04L2 22l5.1-1.34A9.9 9.9 0 1012.04 2zm5.8 14.03c-.25.7-1.45 1.34-2 1.4-.52.05-1.17.07-1.88-.12a17 17 0 01-1.7-.63c-3-1.3-4.95-4.34-5.1-4.54-.15-.2-1.2-1.6-1.2-3.05s.76-2.17 1.03-2.46c.27-.3.58-.37.78-.37h.56c.18 0 .42-.07.65.5.25.6.84 2.07.92 2.22.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.31.38-.44.51-.15.15-.3.3-.13.6.17.3.77 1.27 1.65 2.05 1.13 1 2.08 1.31 2.38 1.46.3.15.47.12.65-.07.17-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.27.1 1.72.82 2.02.97.3.15.5.22.57.35.08.12.08.72-.17 1.42z"/></svg>
+              <span>Chat on WhatsApp</span>
+            </a>
+            <ul class="socials" id="socials" aria-label="Social profiles"></ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p id="footerText">© Your Name. All rights reserved.</p>
+      <a href="#home" class="footer__top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Back to top" data-magnetic>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+
+  <!-- ===== Image lightbox ===== -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Project viewer" hidden>
+    <div class="lightbox__backdrop" data-close></div>
+    <div class="lightbox__panel">
+      <button class="icon-btn lightbox__close" data-close aria-label="Close viewer">✕</button>
+      <button class="icon-btn lightbox__nav lightbox__prev" id="lbPrev" aria-label="Previous project">←</button>
+      <button class="icon-btn lightbox__nav lightbox__next" id="lbNext" aria-label="Next project">→</button>
+      <figure class="lightbox__figure">
+        <div class="lightbox__img" id="lbImg"></div>
+        <figcaption class="lightbox__cap">
+          <span class="tag" id="lbCat"></span>
+          <h3 id="lbTitle"></h3>
+          <p id="lbDesc"></p>
+          <small id="lbCount"></small>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- ===== Video modal ===== -->
+  <div class="vmodal" id="vmodal" role="dialog" aria-modal="true" aria-label="Video player" hidden>
+    <div class="lightbox__backdrop" data-close></div>
+    <div class="vmodal__panel">
+      <button class="icon-btn lightbox__close" data-close aria-label="Close video">✕</button>
+      <div class="vmodal__player" id="vPlayer"></div>
+      <div class="vmodal__cap">
+        <span class="tag tag--cine" id="vCat"></span>
+        <h3 id="vTitle"></h3>
+        <p id="vDesc"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
